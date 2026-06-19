@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Khushi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #faf7f2;
+    --ivory: #f1ecdf;
+    --ink: #2b2722;
+    --muted: #847a6c;
+    --gold: #a9863f;
+    --gold-soft: #d8c79a;
+    --line: rgba(43,39,34,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--cream);
+    color: var(--ink);
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+  ::selection{ background: var(--gold-soft); color: var(--ink); }
+
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image: radial-gradient(var(--line) 1px, transparent 1px);
+    background-size: 26px 26px;
+    opacity:0.35;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .wrap{ max-width: 760px; margin: 0 auto; padding: 0 28px; position:relative; z-index:1; }
+
+  .hero{
+    min-height: 92vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 60px 0;
+    opacity:0;
+    animation: rise 1.4s ease forwards;
+  }
+  @keyframes rise{ from{ opacity:0; transform: translateY(18px);} to{ opacity:1; transform:none; } }
+
+  .eyebrow{
+    font-family:'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+
+  .photo-frame{
+    width: 168px;
+    height: 168px;
+    border-radius: 50%;
+    padding: 6px;
+    border: 1px solid var(--gold-soft);
+    margin-bottom: 36px;
+    position:relative;
+  }
+  .photo-frame::after{
+    content:"";
+    position:absolute;
+    inset:-12px;
+    border: 1px solid var(--line);
+    border-radius:50%;
+  }
+  .photo-frame img{
+    width:100%; height:100%;
+    object-fit: cover;
+    border-radius:50%;
+    display:block;
+  }
+
+  h1{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    font-size: clamp(2.6rem, 8vw, 4.6rem);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+  }
+  h1 .script{
+    display:block;
+    font-style: italic;
+    font-weight:500;
+    color: var(--gold);
+    font-size: 0.42em;
+    margin-bottom: 10px;
+    letter-spacing: 0.06em;
+  }
+
+  .subline{
+    margin-top: 22px;
+    font-size: 1.02rem;
+    color: var(--muted);
+    max-width: 38ch;
+    line-height:1.7;
+  }
+  .subline em{ color: var(--ink); font-style: italic; }
+
+  .divider{
+    width: 64px; height:1px;
+    background: var(--gold-soft);
+    margin: 34px 0;
+  }
+
+  .countdown{
+    display:flex;
+    gap: 28px;
+  }
+  .count-unit{ text-align:center; }
+  .count-num{
+    font-family:'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight:600;
+    color: var(--ink);
+    min-width: 64px;
+  }
+  .count-label{
+    margin-top: 4px;
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .scroll-hint{
+    margin-top: 70px;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity:0.7;
+  }
+  .scroll-hint::after{
+    content:"";
+    display:block;
+    width:1px; height: 34px;
+    background: var(--line);
+    margin: 14px auto 0;
+  }
+
+  section.message{
+    padding: 100px 0 120px;
+    text-align:center;
+  }
+  .section-eyebrow{
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform:uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+  .letter{
+    font-family:'Cormorant Garamond', serif;
+    font-size: clamp(1.3rem, 3vw, 1.65rem);
+    line-height: 1.85;
+    color: var(--ink);
+    max-width: 56ch;
+    margin: 0 auto;
+  }
+  .letter p{ margin-bottom: 26px; }
+  .letter .drop{
+    float:left;
+    font-size: 3.4em;
+    line-height: 0.8;
+    padding: 0.08em 0.08em 0 0;
+    color: var(--gold);
+    font-weight:600;
+  }
+  .signoff{
+    margin-top: 40px;
+    font-family:'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--gold);
+  }
+
+  section.wishes{
+    padding: 80px 0 110px;
+    border-top: 1px solid var(--line);
+  }
+  .wishes-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .wish-card{
+    background: var(--cream);
+    padding: 38px 24px;
+    text-align:center;
+  }
+  .wish-icon{
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .wish-title{
+    font-family:'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight:600;
+    margin-bottom: 8px;
+  }
+  .wish-text{
+    font-size: 0.86rem;
+    color: var(--muted);
+    line-height:1.6;
+  }
+
+  footer{
+    text-align:center;
+    padding: 50px 0 70px;
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform:uppercase;
+  }
+
+  @media (max-width: 600px){
+    .wishes-grid{ grid-template-columns: 1fr; }
+    .countdown{ gap: 18px; }
+    .count-num{ font-size: 2.1rem; min-width: 50px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hero{ animation: none; opacity:1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow">5th of July</div>
+
+    <div class="photo-frame">
+      <img src="khushi.jpg" alt="Khushi">
+    </div>
+
+    <h1><span class="script">Happy Birthday</span>Khushi</h1>
+    <p class="subline">Twenty-two looks beautiful on you. Here's to another year as <em>radiant, kind, and entirely your own self.</em></p>
+
+    <div class="divider"></div>
+
+    <div class="countdown" id="countdown">
+      <div class="count-unit"><div class="count-num" id="cd-days">–</div><div class="count-label">Days</div></div>
+      <div class="count-unit"><div class="count-num" id="cd-hours">–</div><div class="count-label">Hours</div></div>
+      <div class="count-unit"><div class="count-num" id="cd-mins">–</div><div class="count-label">Minutes</div></div>
+      <div class="count-unit"><div class="count-num" id="cd-secs">–</div><div class="count-label">Seconds</div></div>
+    </div>
+
+    <div class="scroll-hint">Scroll</div>
+  </section>
+
+  <section class="message">
+    <div class="section-eyebrow">A Little Note</div>
+    <div class="letter">
+      <p><span class="drop">D</span>ear Khushi, on this day twenty-two years ago, the world got a little more graceful. Every year I get to watch you grow into yourself a little more — more confident, more generous, more unmistakably you — and it's one of my favorite things to witness.</p>
+      <p>I hope this year brings you everything you've been quietly working toward, and a few wonderful surprises you didn't see coming. Stay exactly as warm and as bright as you are.</p>
+    </div>
+    <div class="signoff">With so much love, always.</div>
+  </section>
+
+  <section class="wishes">
+    <div class="wishes-grid">
+      <div class="wish-card">
+        <div class="wish-icon">✦</div>
+        <div class="wish-title">Joy</div>
+        <div class="wish-text">May this year be full of moments worth remembering.</div>
+      </div>
+      <div class="wish-card">
+        <div class="wish-icon">✦</div>
+        <div class="wish-title">Grace</div>
+        <div class="wish-text">May you keep moving through the world exactly as gracefully as you do.</div>
+      </div>
+      <div class="wish-card">
+        <div class="wish-icon">✦</div>
+        <div class="wish-title">Love</div>
+        <div class="wish-text">May you feel as cherished as you make everyone around you feel.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>Made with care, for Khushi's birthday</footer>
+</div>
+
+<script>
+  function getNextBirthday(){
+    const now = new Date();
+    let year = now.getFullYear();
+    let target = new Date(year, 6, 5, 0, 0, 0);
+    if (target < now) target = new Date(year + 1, 6, 5, 0, 0, 0);
+    return target;
+  }
+
+  function updateCountdown(){
+    const target = getNextBirthday();
+    const now = new Date();
+    let diff = target - now;
+    if (diff < 0) diff = 0;
+
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff / (1000*60*60)) % 24);
+    const mins = Math.floor((diff / (1000*60)) % 60);
+    const secs = Math.floor((diff / 1000) % 60);
+
+    document.getElementById('cd-days').textContent = days;
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(secs).padStart(2,'0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
